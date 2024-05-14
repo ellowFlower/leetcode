@@ -26,3 +26,36 @@ class Solution:
 
         return stack.pop()
 ```
+```java
+class Solution {
+    public int evalRPN(String[] tokens) {
+        var stack = new ArrayDeque<Integer>();
+        int x, y;
+ 
+        for (String t: tokens) {
+            switch(t) {
+                case "+":
+                    stack.push(stack.pop() + stack.pop());
+                    break;
+                case "-":
+                    x = stack.pop();
+                    y = stack.pop();
+                    stack.push(y-x);
+                    break;
+                case "*":
+                    stack.push(stack.pop() * stack.pop());
+                    break;
+                case "/":
+                    x = stack.pop();
+                    y = stack.pop();
+                    stack.push(y/x);
+                    break;
+                default:
+                    stack.push(Integer.valueOf(t));
+            }
+        }
+
+        return stack.pop();
+    }
+}
+```
