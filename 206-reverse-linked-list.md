@@ -2,8 +2,10 @@
 The idea is to change pointers to the next node in the list. They are changed to the previous node in the list.
 
 The implementation can be done recursive or iterative.
+
 **recursive**
 This solution calls the method to update a pointer once for every node in the list. If `head.next` is null the last node is reached.
+
 **iterative**
 The iterative solution uses a while loop to visit each node in the list. For every node it updates `head.next` to point to the previous node. 
 ## Code
