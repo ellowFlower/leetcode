@@ -22,3 +22,28 @@ class Solution:
             else:
                 return current
 ```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	current := root
+    for current != nil {
+        if q.Val < current.Val && p.Val < current.Val {
+            current = current.Left
+        } else if q.Val > current.Val && p.Val > current.Val {
+            current = current.Right
+        } else {
+            return current
+        }
+    }
+    return nil
+}
+```
