@@ -24,3 +24,30 @@ class Solution:
 
         return stack == []
 ```
+
+```go
+func isValid(s string) bool {
+	var stack []rune
+	brackets := map[rune]rune{
+		'(': ')',
+		'{': '}',
+		'[': ']',
+	}
+
+	for _, v := range s {
+		if _, ok := brackets[v]; ok {
+			stack = append(stack, v)
+			continue
+		}
+
+		if len(stack) == 0 || brackets[stack[len(stack)-1]] != v {
+			return false
+		}
+
+		stack = stack[:len(stack)-1]
+	}
+
+	return len(stack) == 0
+}
+
+```
